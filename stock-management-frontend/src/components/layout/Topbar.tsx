@@ -5,7 +5,7 @@ export default function Topbar() {
     <header className="topbar">
       <div className="topbar-context">
         <span>Inventory management </span>
-        <strong>Products</strong>
+        <strong>System</strong>
       </div>
 
       <div className="topbar-actions">
@@ -20,7 +20,7 @@ export default function Topbar() {
 
         <div className="user-profile">
           <div className="user-avatar">
-            OP
+            
           </div>
 
           <div className="user-info">

@@ -6,100 +6,68 @@ export const products: Product[] = [
     name: "Dell Latitude 5420",
     sku: "DELL-L5420",
     category: "Computers",
+    unit: "Piece",
     description: "14-inch business laptop for professional office use.",
     attributes: [
-      {
-        name: "RAM",
-        value: "16GB",
-      },
-      {
-        name: "Storage",
-        value: "512GB SSD",
-      },
-      {
-        name: "Processor",
-        value: "Intel Core i5",
-      },
+      { name: "RAM", value: "16GB" },
+      { name: "Storage", value: "512GB SSD" },
+      { name: "Processor", value: "Intel Core i5" },
     ],
     availableQuantity: 42,
     threshold: 15,
   },
-
   {
     id: "2",
     name: "Sony WH-1000XM5",
     sku: "SONY-XM5",
     category: "Audio",
+    unit: "Piece",
     description: "Wireless noise-cancelling headphones.",
     attributes: [
-      {
-        name: "Color",
-        value: "Black",
-      },
-      {
-        name: "Battery",
-        value: "30 hours",
-      },
+      { name: "Color", value: "Black" },
+      { name: "Battery", value: "30 hours" },
     ],
     availableQuantity: 12,
     threshold: 15,
   },
-
   {
     id: "3",
     name: "Apple Watch Series 9",
     sku: "APPLE-S9",
     category: "Wearables",
+    unit: "Piece",
     description: "Smartwatch with health and fitness tracking.",
     attributes: [
-      {
-        name: "Size",
-        value: "45mm",
-      },
-      {
-        name: "Band",
-        value: "Sport Loop",
-      },
+      { name: "Size", value: "45mm" },
+      { name: "Band", value: "Sport Loop" },
     ],
     availableQuantity: 0,
     threshold: 10,
   },
-
   {
     id: "4",
     name: "Logitech MX Master 3S",
     sku: "LOG-MX3S",
     category: "Accessories",
+    unit: "Piece",
     description: "Ergonomic wireless mouse for professional work.",
     attributes: [
-      {
-        name: "Color",
-        value: "Graphite",
-      },
-      {
-        name: "DPI",
-        value: "8,000",
-      },
+      { name: "Color", value: "Graphite" },
+      { name: "DPI", value: "8,000" },
     ],
     availableQuantity: 128,
     threshold: 25,
   },
-
   {
     id: "5",
     name: "Samsung T7 Shield 2TB",
     sku: "SAM-T7-2TB",
     category: "Storage",
+    unit: "Piece",
     description: "Rugged portable SSD with high-speed data transfer.",
     attributes: [
-      {
-        name: "Capacity",
-        value: "2TB",
-      },
-      {
-        name: "Interface",
-        value: "USB 3.2",
-      },
+      { name: "Capacity", value: "2TB" },
+      { name: "Interface", value: "USB 3.2" },
     ],
     availableQuantity: 76,
     threshold: 20,
