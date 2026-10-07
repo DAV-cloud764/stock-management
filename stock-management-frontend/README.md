@@ -1,32 +1,49 @@
-# React + TypeScript + Vite
+# Stock Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern frontend interface for managing products and monitoring inventory levels.
 
-Currently, two official plugins are available:
+This project is being developed as an enterprise-style Stock Management System frontend using React, TypeScript, and Vite. The current implementation focuses on the **Product Management** module.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The Stock Management System provides a centralized interface for managing product information and monitoring current stock levels.
 
-## Expanding the Oxlint configuration
+The Product module allows users to:
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- View products
+- Search products
+- Filter products by category
+- Filter products by stock status
+- Filter products by availability
+- View product attributes
+- Define inventory thresholds
+- Add new products
+- Edit product information
+- Manage product units
+- Add dynamic product attributes
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+The frontend is currently being developed independently of the backend and database layer.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+---
+
+## Current Module
+
+### Product Management
+
+The Product module is the core module currently implemented in the application.
+
+Each product contains:
+
+```text
+Product
+├── ID
+├── Name
+├── SKU
+├── Category
+├── Unit
+├── Description
+├── Attributes
+├── Available Quantity
+└── Stock Threshold
