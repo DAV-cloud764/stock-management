@@ -48,47 +48,70 @@ export default function ProductTable({
   products,
 }: ProductTableProps) {
   const [searchTerm, setSearchTerm] = useState("");
-
   const [selectedCategory, setSelectedCategory] =
     useState("");
+  const [selectedStatus, setSelectedStatus] =
+  useState("");
 
   const categories = Array.from(
     new Set(products.map((product) => product.category))
   ).sort();
 
+  const statuses = [
+  "In Stock",
+  "Low Stock",
+  "Out of Stock",
+] as const;
+
   const filteredProducts = useMemo(() => {
-    const normalizedSearch = searchTerm
-      .trim()
+  const normalizedSearch = searchTerm
+    .trim()
+    .toLowerCase();
+
+  return products.filter((product) => {
+    const productAttributes = product.attributes
+      .map(
+        (attribute) =>
+          `${attribute.name} ${attribute.value}`
+      )
+      .join(" ");
+
+    const searchableText = [
+      product.name,
+      product.sku,
+      product.category,
+      product.description,
+      productAttributes,
+    ]
+      .join(" ")
       .toLowerCase();
 
-    return products.filter((product) => {
-      const productAttributes = product.attributes
-        .map(
-          (attribute) =>
-            `${attribute.name} ${attribute.value}`
-        )
-        .join(" ");
+    const matchesSearch =
+      searchableText.includes(normalizedSearch);
 
-      const searchableText = [
-        product.name,
-        product.sku,
-        product.category,
-        product.description,
-        productAttributes,
-      ]
-        .join(" ")
-        .toLowerCase();
+    const matchesCategory =
+      !selectedCategory ||
+      product.category === selectedCategory;
 
-      const matchesSearch =
-        searchableText.includes(normalizedSearch);
+    const productStatus = getStockStatus(product);
 
-      const matchesCategory =
-        !selectedCategory ||
-        product.category === selectedCategory;
+    const matchesStatus =
+      !selectedStatus ||
+      productStatus === selectedStatus;
 
-      return matchesSearch && matchesCategory;
-    });
-  }, [products, searchTerm, selectedCategory]);
+    return (
+      matchesSearch &&
+      matchesCategory &&
+      matchesStatus
+    );
+  });
+}, [
+  products,
+  searchTerm,
+  selectedCategory,
+  selectedStatus,
+]);
+
 
   return (
     <section className="product-card">
@@ -141,6 +164,26 @@ export default function ProductTable({
             </option>
           ))}
         </select>
+
+        <select
+  className="product-filter"
+  value={selectedStatus}
+  onChange={(event) =>
+    setSelectedStatus(event.target.value)
+  }
+  aria-label="Filter products by stock status"
+>
+  <option value="">Stock status</option>
+
+  {statuses.map((status) => (
+    <option
+      key={status}
+      value={status}
+    >
+      {status}
+    </option>
+  ))}
+</select>
 
         {searchTerm && (
           <span className="search-result-count">
