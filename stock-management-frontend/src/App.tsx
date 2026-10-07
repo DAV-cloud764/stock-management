@@ -1,5 +1,7 @@
 import Sidebar from "./components/layout/Sidebar";
 import Topbar from "./components/layout/Topbar";
+import ProductTable from "./features/products/components/ProductTable";
+import { products } from "./features/products/data/products";
 
 function App() {
   return (
@@ -28,13 +30,7 @@ function App() {
             </button>
           </div>
 
-          <section className="content-placeholder">
-            <h2>Product module</h2>
-
-            <p>
-              Product management will be implemented here.
-            </p>
-          </section>
+          <ProductTable products={products} />
         </main>
       </div>
     </div>

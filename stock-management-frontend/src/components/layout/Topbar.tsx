@@ -1,15 +1,11 @@
-import { Bell, Search } from "lucide-react";
+import { Bell } from "lucide-react";
 
 export default function Topbar() {
   return (
     <header className="topbar">
-      <div className="topbar-search">
-        <Search size={18} />
-
-        <input
-          type="text"
-          placeholder="Search products..."
-        />
+      <div className="topbar-context">
+        <span>Inventory management </span>
+        <strong>Products</strong>
       </div>
 
       <div className="topbar-actions">
@@ -24,7 +20,7 @@ export default function Topbar() {
 
         <div className="user-profile">
           <div className="user-avatar">
-            DM
+            OP
           </div>
 
           <div className="user-info">
