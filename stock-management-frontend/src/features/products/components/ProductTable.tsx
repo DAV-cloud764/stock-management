@@ -52,6 +52,8 @@ export default function ProductTable({
     useState("");
   const [selectedStatus, setSelectedStatus] =
   useState("");
+  const [selectedAvailability, setSelectedAvailability] =
+  useState("");
 
   const categories = Array.from(
     new Set(products.map((product) => product.category))
@@ -95,15 +97,25 @@ export default function ProductTable({
 
     const productStatus = getStockStatus(product);
 
-    const matchesStatus =
-      !selectedStatus ||
-      productStatus === selectedStatus;
+const matchesStatus =
+  !selectedStatus ||
+  productStatus === selectedStatus;
 
-    return (
-      matchesSearch &&
-      matchesCategory &&
-      matchesStatus
-    );
+const isAvailable =
+  product.availableQuantity > 0;
+
+const matchesAvailability =
+  !selectedAvailability ||
+  (selectedAvailability === "Available" && isAvailable) ||
+  (selectedAvailability === "Unavailable" && !isAvailable);
+
+return (
+  matchesSearch &&
+  matchesCategory &&
+  matchesStatus &&
+  matchesAvailability
+);
+
   });
 }, [
   products,
@@ -183,6 +195,19 @@ export default function ProductTable({
       {status}
     </option>
   ))}
+</select>
+
+<select
+  className="product-filter"
+  value={selectedAvailability}
+  onChange={(event) =>
+    setSelectedAvailability(event.target.value)
+  }
+  aria-label="Filter products by availability"
+>
+  <option value="">Availability</option>
+  <option value="Available">Available</option>
+  <option value="Unavailable">Unavailable</option>
 </select>
 
         {searchTerm && (
